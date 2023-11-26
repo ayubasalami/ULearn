@@ -33,34 +33,31 @@ class Welcome extends ConsumerWidget {
                   controller: _controller,
                   children: [
                     ///first page
-                    OnboardingWidget(
-                      _controller,
-                      image: 'assets/images/reading.png',
-                      title: 'First See Learning',
-                      subtitle:
-                          'Forget about the paper, now learning in one place',
-                      index: 1,
-                    ),
+                    OnboardingWidget(_controller,
+                        image: 'assets/images/reading.png',
+                        title: 'First See Learning',
+                        subtitle:
+                            'Forget about the paper, now learning in one place',
+                        index: 1,
+                        context: context),
 
                     ///second page
-                    OnboardingWidget(
-                      _controller,
-                      image: 'assets/images/man.png',
-                      title: 'Connect With Everyone',
-                      subtitle:
-                          'Always keep in touch with your tutor and friends.Lets get connected',
-                      index: 2,
-                    ),
+                    OnboardingWidget(_controller,
+                        image: 'assets/images/man.png',
+                        title: 'Connect With Everyone',
+                        subtitle:
+                            'Always keep in touch with your tutor and friends.Lets get connected',
+                        index: 2,
+                        context: context),
 
                     ///third page
-                    OnboardingWidget(
-                      _controller,
-                      image: 'assets/images/boy.png',
-                      title: 'Always Fascinated',
-                      subtitle:
-                          'Anywhere, anytime.The time is at your discretion, so study wherever you can',
-                      index: 3,
-                    ),
+                    OnboardingWidget(_controller,
+                        image: 'assets/images/boy.png',
+                        title: 'Always Fascinated',
+                        subtitle:
+                            'Anywhere, anytime.The time is at your discretion, so study wherever you can',
+                        index: 3,
+                        context: context),
                   ],
                 ),
                 Positioned(

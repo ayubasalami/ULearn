@@ -7,7 +7,8 @@ Widget OnboardingWidget(PageController controller,
     {required String image,
     required String title,
     required String subtitle,
-    int index = 0}) {
+    int index = 0,
+    BuildContext? context}) {
   return Column(
     children: [
       Image.asset(
@@ -34,7 +35,7 @@ Widget OnboardingWidget(PageController controller,
           text: subtitle,
         ),
       ),
-      OnboardingButton(index, controller)
+      OnboardingButton(index, controller, context!)
     ],
   );
 }

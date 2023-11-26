@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ulearn/pages/authentication/sign_in_page.dart';
 
 import '../../../common/widgets/app_shadow.dart';
 import '../../../common/widgets/text_widget.dart';
 
-Widget OnboardingButton(int index, PageController controller) {
+Widget OnboardingButton(
+    int index, PageController controller, BuildContext context) {
   return GestureDetector(
     onTap: () {
       if (index < 3) {
@@ -12,8 +14,12 @@ Widget OnboardingButton(int index, PageController controller) {
           duration: const Duration(
             microseconds: 300,
           ),
-          curve: Curves.easeIn,
+          curve: Curves.linear,
         );
+      } else {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          return SignInPage();
+        }));
       }
     },
     child: Container(
