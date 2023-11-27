@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearn/common/utils/app_styles.dart';
 import 'package:ulearn/pages/welcome/welcome.dart';
 
 void main() {
@@ -21,10 +22,7 @@ class MyApp extends StatelessWidget {
       builder: (context, widget) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        theme: AppTheme.appThemeData,
         home: Welcome(),
       ),
       designSize: const Size(390, 844),

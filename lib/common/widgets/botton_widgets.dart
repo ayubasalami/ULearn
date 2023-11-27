@@ -10,9 +10,10 @@ Widget appButton({
   double width = 325,
   double height = 50,
   bool isLogin = true,
+  void Function()? onTap,
 }) {
   return GestureDetector(
-    onTap: () {},
+    onTap: onTap,
     child: Container(
       width: width.w,
       height: height.h,

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearn/common/utils/app_colors.dart';
-import 'package:ulearn/common/widgets/botton_widgets.dart';
-import 'package:ulearn/common/widgets/text_widget.dart';
-import 'package:ulearn/pages/authentication/sign_up_page.dart';
 import 'package:ulearn/pages/authentication/widgets/widgets.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+import '../../common/utils/app_colors.dart';
+import '../../common/widgets/botton_widgets.dart';
+import '../../common/widgets/text_widget.dart';
+
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class SignInPage extends StatelessWidget {
             ),
             backgroundColor: Colors.white,
             title: text16Normal(
-              text: 'Login',
+              text: 'Register',
               color: AppColors.primaryText,
             ),
           ),
@@ -34,12 +34,23 @@ class SignInPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                thirdPartyLogin(),
-                Center(
-                    child: text14Normal(
-                        text: 'Or use your email account to login')),
                 SizedBox(
                   height: 50.h,
+                ),
+                Center(
+                    child: text14Normal(
+                        text: 'Enter your details below & signup for free')),
+                SizedBox(
+                  height: 50.h,
+                ),
+                appTextField(
+                  text: "User name",
+                  iconName: 'assets/icons/user.png',
+                  hintText: 'Enter your user name',
+                  obscureText: true,
+                ),
+                SizedBox(
+                  height: 20.h,
                 ),
                 appTextField(
                   text: 'Email',
@@ -58,20 +69,24 @@ class SignInPage extends StatelessWidget {
                 SizedBox(
                   height: 20.h,
                 ),
-                Container(
-                  margin: EdgeInsets.only(left: 25.w),
-                  child: textUnderline(
-                    text: 'Forgot password?',
-                  ),
-                ),
-                SizedBox(
-                  height: 100.h,
-                ),
-                Center(
-                  child: appButton(buttonName: 'Login'),
+                appTextField(
+                  text: "Confirm Password",
+                  iconName: 'assets/icons/lock.png',
+                  hintText: 'Confirm password',
+                  obscureText: true,
                 ),
                 SizedBox(
                   height: 20.h,
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 25.w),
+                  child: text14Normal(
+                    text:
+                        'By creating an account you have agreed to\nthe terms & conditions',
+                  ),
+                ),
+                SizedBox(
+                  height: 50.h,
                 ),
                 Center(
                   child: appButton(
@@ -79,13 +94,12 @@ class SignInPage extends StatelessWidget {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) {
-                            return const SignUpPage();
+                            return Container();
                           },
                         ),
                       );
                     },
                     buttonName: 'Register',
-                    isLogin: false,
                   ),
                 ),
               ],
