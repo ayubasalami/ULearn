@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearn/pages/authentication/notifier/register_notifier.dart';
+import 'package:ulearn/pages/authentication/sign_up_controller.dart';
 import 'package:ulearn/pages/authentication/widgets/widgets.dart';
 import '../../common/utils/app_colors.dart';
 import '../../common/widgets/botton_widgets.dart';
@@ -49,7 +50,7 @@ class SignUpPage extends ConsumerWidget {
                     text: "User name",
                     iconName: 'assets/icons/user.png',
                     hintText: 'Enter your user name',
-                    obscureText: true,
+                    obscureText: false,
                     func: (value) {
                       ref
                           .read(registerNotifierProvider.notifier)
@@ -102,13 +103,7 @@ class SignUpPage extends ConsumerWidget {
                 Center(
                   child: appButton(
                     onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return Container();
-                          },
-                        ),
-                      );
+                      SignUpController(ref: ref).handleSignUp();
                     },
                     buttonName: 'Register',
                   ),

@@ -14,6 +14,6 @@ class RegisterNotifier extends _$RegisterNotifier {
   }
 
   void onUserEmailChange(String email) {
-    state = state.copyWith(username: email);
+    state = state.copyWith(email: email);
   }
 }
