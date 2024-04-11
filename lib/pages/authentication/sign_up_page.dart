@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearn/pages/authentication/notifier/register_notifier.dart';
 import 'package:ulearn/pages/authentication/widgets/widgets.dart';
 import '../../common/utils/app_colors.dart';
 import '../../common/widgets/botton_widgets.dart';
 import '../../common/widgets/text_widget.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends ConsumerWidget {
   const SignUpPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final regProvider = ref.watch(registerNotifierProvider);
     return Container(
       color: Colors.white,
       child: SafeArea(
@@ -43,11 +46,15 @@ class SignUpPage extends StatelessWidget {
                   height: 50.h,
                 ),
                 appTextField(
-                  text: "User name",
-                  iconName: 'assets/icons/user.png',
-                  hintText: 'Enter your user name',
-                  obscureText: true,
-                ),
+                    text: "User name",
+                    iconName: 'assets/icons/user.png',
+                    hintText: 'Enter your user name',
+                    obscureText: true,
+                    func: (value) {
+                      ref
+                          .read(registerNotifierProvider.notifier)
+                          .onUserNameChange(value);
+                    }),
                 SizedBox(
                   height: 20.h,
                 ),
@@ -55,25 +62,30 @@ class SignUpPage extends StatelessWidget {
                   text: 'Email',
                   iconName: 'assets/icons/user.png',
                   hintText: 'Enter your Email',
+                  func: (value) {
+                    ref
+                        .read(registerNotifierProvider.notifier)
+                        .onUserEmailChange(value);
+                  },
                 ),
                 SizedBox(
                   height: 20.h,
                 ),
                 appTextField(
-                  text: "Password",
-                  iconName: 'assets/icons/lock.png',
-                  hintText: 'Enter your Password',
-                  obscureText: true,
-                ),
+                    text: "Password",
+                    iconName: 'assets/icons/lock.png',
+                    hintText: 'Enter your Password',
+                    obscureText: true,
+                    func: (value) {}),
                 SizedBox(
                   height: 20.h,
                 ),
                 appTextField(
-                  text: "Confirm Password",
-                  iconName: 'assets/icons/lock.png',
-                  hintText: 'Confirm password',
-                  obscureText: true,
-                ),
+                    text: "Confirm Password",
+                    iconName: 'assets/icons/lock.png',
+                    hintText: 'Confirm password',
+                    obscureText: true,
+                    func: (value) {}),
                 SizedBox(
                   height: 20.h,
                 ),

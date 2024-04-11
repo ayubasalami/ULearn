@@ -15,7 +15,7 @@ class RegisterState {
     return RegisterState(
       email: email ?? this.email,
       password: password ?? this.password,
-      rePassword: rePassword ?? this.password,
+      rePassword: rePassword ?? this.rePassword,
       username: username ?? this.username,
     );
   }
